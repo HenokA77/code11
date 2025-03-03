@@ -82,4 +82,42 @@ class Borrower {
   console.log(borrower1.borrowedBooks);
   // Expected output: []
   
+  // Task 3
+class Library {
+    constructor() {
+      this.books = [];
+      this.borrowers = [];
+    }
+  
+    // Method to add a new book to the library
+    addBook(book) {
+      this.books.push(book);
+      return `Book "${book.title}" added to the library.`;
+    }
+  
+    // Method to list all books in the library
+    listBooks() {
+      if (this.books.length === 0) {
+        console.log("No books available in the library.");
+        return;
+      }
+      console.log("Books in the Library:");
+      this.books.forEach(book => console.log(book.getDetails()));
+    }
+  }
+  
+  // Example usage:
+  const library = new Library();
+  
+  const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 9780743273565, 5);
+  const book2 = new Book("To Kill a Mockingbird", "Harper Lee", 9780061120084, 3);
+  
+  console.log(library.addBook(book1)); // Adding books
+  console.log(library.addBook(book2));
+  
+  library.listBooks(); // Listing all books
+  const library = new Library();
+  library.addBook(book1);
+  library.listBooks();
+  // Expected output: "Title: The Great Gatsby, Author: F. Scott Fitzgerald, ISBN: 123456, Copies: 4"
   
